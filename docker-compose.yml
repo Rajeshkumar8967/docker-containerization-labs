@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    container_name: week4-web-compose
+    ports:
+      - "8080:80"
+    networks:
+      - week4-network
+    volumes:
+      - web-logs:/var/log/nginx
+
+  redis:
+    image: redis:alpine
+    container_name: week4-redis
+    networks:
+      - week4-network
+
+networks:
+  week4-network:
+    driver: bridge
+
+volumes:
+  web-logs:
