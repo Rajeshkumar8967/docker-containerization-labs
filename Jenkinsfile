@@ -29,6 +29,14 @@ pipeline {
                 echo 'Test stage completed successfully.'
             }
         }
+
+        stage('Validation') {
+            steps {
+                echo 'Starting validation stage...'
+                bat 'if not exist validation.txt exit /b 1'
+                echo 'Validation completed successfully.'
+            }
+        }
     }
 
     post {
