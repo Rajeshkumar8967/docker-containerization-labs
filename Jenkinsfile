@@ -33,7 +33,7 @@ pipeline {
         stage('Validation') {
             steps {
                 echo 'Starting validation stage...'
-                bat 'if exist validation.txt exit /b 1'
+                bat 'if not exist validation.txt exit /b 1'
                 echo 'Validation completed successfully.'
             }
         }
